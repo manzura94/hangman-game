@@ -1,0 +1,253 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.game-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  padding: 0 10px;
+  transition: opacity 0.4s;
+}
+.game-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.game-modal__content {
+  padding: 28px;
+  max-width: 420px;
+  width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.game-modal__image {
+  max-width: 130px;
+}
+@media only screen and (max-width: 820px) {
+  .game-modal__image {
+    max-width: 120px;
+  }
+}
+.game-modal__title {
+  margin-top: 20px;
+  font-size: 28px;
+}
+@media only screen and (max-width: 820px) {
+  .game-modal__title {
+    font-size: 24px;
+  }
+}
+.game-modal__desc {
+  font-size: 18px;
+  margin: 16px 0 28px;
+  font-weight: 500;
+}
+@media only screen and (max-width: 820px) {
+  .game-modal__desc {
+    font-size: 16px;
+  }
+}
+.game-modal__desc--value {
+  color: #c084fc;
+  font-weight: 600;
+}
+.game-modal__play-again {
+  padding: 12px 24px;
+}
+@media only screen and (max-width: 820px) {
+  .game-modal__play-again {
+    padding: 10px 18px;
+  }
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #c084fc;
+  padding: 0 10px;
+  color: #1c1917;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 860px;
+  gap: 64px;
+  padding: 60px 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width: 820px) {
+  .container {
+    flex-direction: column;
+    padding: 30px 15px;
+    align-items: center;
+  }
+}
+
+.hangman-box img {
+  user-select: none;
+  max-width: 270px;
+}
+@media only screen and (max-width: 820px) {
+  .hangman-box img {
+    max-width: 200px;
+  }
+}
+.hangman-box h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 820px) {
+  .hangman-box h1 {
+    font-size: 20px;
+  }
+}
+
+.game-box .word-display {
+  gap: 10px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-display .letter {
+  width: 28px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #1c1917;
+}
+@media only screen and (max-width: 820px) {
+  .word-display .letter {
+    margin-bottom: 36px;
+    font-size: 28px;
+  }
+}
+
+.word-display .letter.guessed {
+  margin: -40px 0 35px;
+  border-color: transparent;
+}
+@media only screen and (max-width: 820px) {
+  .word-display .letter.guessed {
+    margin: -35px 0 25px;
+  }
+}
+
+.game-box h4 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+@media only screen and (max-width: 820px) {
+  .game-box h4 {
+    font-size: 16px;
+  }
+}
+
+.game-box h4 b {
+  padding-left: 4px;
+  font-weight: 600;
+}
+
+.game-box .guesses-text b {
+  color: #ff0000;
+  font-weight: 600;
+  padding-left: 4px;
+}
+
+.game-box .keyboard {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+:where(.game-modal, .keyboard) button {
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: #c084fc;
+  user-select: none;
+  transition: background-color 0.3s ease-in-out;
+}
+@media (any-hover: hover) {
+  :where(.game-modal, .keyboard) button:hover {
+    background-color: #d8b4fe;
+  }
+}
+
+.keyboard button {
+  padding: 7px;
+  width: calc(11.1111111111% - 5px);
+  border: 1px solid #444;
+  box-shadow: 0 0.2em 0 0.05em #222;
+  border-bottom-color: #555;
+}
+.keyboard button[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.keyboard button:active, .keyboard button[data-pressed] {
+  background: #d8b4fe;
+  position: relative;
+  top: 2px;
+  box-shadow: 0 0 0 1px #414040;
+}/*# sourceMappingURL=style.css.map */

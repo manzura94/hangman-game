@@ -1,0 +1,146 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: $primary-color;
+    padding: 0 10px;
+    color: $black;
+}
+
+.container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 860px;
+    gap: 64px;
+    padding: 60px 40px;
+    background: $white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    @include media(820) {
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: center;
+    }
+}
+
+.hangman-box {
+    img {
+        user-select: none;
+        max-width: 270px;
+
+        @include media(820) {
+            max-width: 200px;
+        }
+    }
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+        margin-top: 20px;
+        text-transform: uppercase;
+
+        @include media(820) {
+            font-size: 20px;
+        }
+    }
+}
+.game-box .word-display {
+    gap: 10px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.word-display .letter {
+    width: 28px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    border-bottom: 3px solid $black;
+
+    @include media(820) {
+        margin-bottom: 36px;
+        font-size: 28px;
+    }
+}
+.word-display .letter.guessed {
+    margin: -40px 0 35px;
+    border-color: transparent;
+
+    @include media(820) {
+        margin: -35px 0 25px;
+    }
+}
+.game-box h4 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    @include media(820) {
+        font-size: 16px;
+    }
+}
+.game-box h4 b {
+    padding-left: 4px;
+    font-weight: 600;
+}
+
+.game-box .guesses-text b {
+    color: #ff0000;
+    font-weight: 600;
+    padding-left: 4px;
+}
+.game-box .keyboard {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    justify-content: center;
+}
+:where(.game-modal, .keyboard) button {
+    color: $white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: $primary-color;
+    user-select: none;
+    transition: background-color 0.3s ease-in-out;
+
+    @include hover() {
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+}
+
+.keyboard button {
+    padding: 7px;
+    width: calc(100% / 9 - 5px);
+    border: 1px solid #444;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    border-bottom-color: #555;
+
+    &[disabled] {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    &:active,
+    &[data-pressed] {
+        background: $primary-color-hover;
+        position: relative;
+        top: 2px;
+        box-shadow: 0 0 0 1px #414040;
+    }
+}
